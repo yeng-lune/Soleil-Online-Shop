@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soleil Online Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <img src="images/logo.png" alt="logo" width="170px" height="60px"> 
+        <div id="cart-icon" onclick="toggleCart()">
+            <svg mlns="http://www.w3.org/2000/svg" width="40" height="40" fill="Black" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"/>
+              </svg>
+        </div>
+        
+        <!-- Sidebar Cart -->
+        <div id="sidebar-cart" class="sidebar hidden">
+            <div id="cart-items">
+                <!-- Cart items will be dynamically populated here -->
+            </div>
+            <button onclick="closeCart()">Close</button>
+            <button onclick="goToCheckout()">Checkout</button>
+        </div>
+    </header>
+    <div class="product-container">
+        <!-- Example Product -->
+        <div class="product">
+            <img src="images/Pearl-Milk-Tea.png" alt="Product Image">
+            <h2>Pearl MilkTea</h2>
+            <p>Price: ₱100</p>
+            <label>Quantity:
+                <input type="number" id="quantity1" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Pearl MilkTea', 100, document.getElementById('quantity1').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/Panda-Milk-Tea-300x300.png" alt="Product Image">
+            <h2>Panda MilkTea</h2>
+            <p>Price: ₱110</p>
+            <label>Quantity:
+                <input type="number" id="quantity2" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Panda MilkTea', 110, document.getElementById('quantity2').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/Grass-Jelly-Milk-Tea-300x300.png" alt="Product Image">
+            <h2>Grass Jelly MilkTea</h2>
+            <p>Price: ₱110</p>
+            <label>Quantity:
+                <input type="number" id="quantity3" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Grass Jelly MilkTea', 110, document.getElementById('quantity3').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/2-Ladies-Milk-Tea-300x300.png" alt="Product Image">
+            <h2>2 Ladies MilkTea</h2>
+            <p>Price: ₱120</p>
+            <label>Quantity:
+                <input type="number" id="quantity4" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('2 Ladies MilkTea', 120, document.getElementById('quantity4').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/3-Buddies-Milk-Tea-300x300.png" alt="Product Image">
+            <h2>3 Buddies MilkTea</h2>
+            <p>Price: ₱120</p>
+            <label>Quantity:
+                <input type="number" id="quantity5" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('3 Buddies MilkTea', 120, document.getElementById('quantity5').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/Taro-Milk-Tea-300x300.png" alt="Product Image">
+            <h2>Taro MilkTea</h2>
+            <p>Price: ₱100</p>
+            <label>Quantity:
+                <input type="number" id="quantity6" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Taro MilkTea', 100, document.getElementById('quantity6').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/Chocolate-with-Pearl-300x300.png" alt="Product Image">
+            <h2>Chocolate Pearl</h2>
+            <p>Price: ₱110</p>
+            <label>Quantity:
+                <input type="number" id="quantity7" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Chocolate Pearl', 110, document.getElementById('quantity7').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/Taro-Slush-1-300x300.png" alt="Product Image">
+            <h2>Taro Slush</h2>
+            <p>Price: ₱100</p>
+            <label>Quantity:
+                <input type="number" id="quantity8" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Taro Slush', 100, document.getElementById('quantity8').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/Taro-Latte-300x300.png" alt="Product Image">
+            <h2>Taro Latte</h2>
+            <p>Price: ₱120</p>
+            <label>Quantity:
+                <input type="number" id="quantity9" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Taro Latte', 120, document.getElementById('quantity9').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/Chocolate-with-Pudding-and-Pearl-300x300.png" alt="Product Image">
+            <h2>Chocolate Pudding</h2>
+            <p>Price: ₱110</p>
+            <label>Quantity:
+                <input type="number" id="quantity10" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Chocolate Pudding', 110, document.getElementById('quantity10').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/White-Pearl-Milk-Tea-300x300.png" alt="Product Image">
+            <h2>White Pearl MilkTea</h2>
+            <p>Price: ₱100</p>
+            <label>Quantity:
+                <input type="number" id="quantity11" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('White Pearl MilkTea', 100, document.getElementById('quantity11').value)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="images/Passion-Fruit-Tea-Burst-300x300.png" alt="Product Image">
+            <h2>Passion Fruit Tea</h2>
+            <p>Price: ₱115</p>
+            <label>Quantity:
+                <input type="number" id="quantity12" min="1" max="10" value="1">
+            </label>
+            <button onclick="addToCart('Passion Fruit Tea', 115, document.getElementById('quantity12').value)">Add to Cart</button>
+        </div>   
+    </div>
+
+    <!-- Notification container for adding to cart -->
+    <div id="notification" class="hidden">
+        <p id="notification-message"></p>
+    </div>
+</body>
+</html>

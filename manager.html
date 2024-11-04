@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Page</title>
+    <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+    <h1>Soleil Manager</h1>
+    <div style="position: relative; max-width: 400px; margin: 0 auto;">
+        <input type="text" id="searchInput" placeholder="MLP" />
+        <button id="clearSearch" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: none; cursor: pointer; font-size: 16px;">X</button>
+    </div>
+    
+    
+    <div id="productList">
+        <!-- Dynamic Product List Here -->
+    </div>
+
+    <div id="productDetail" style="display: none;">
+        <h2>Product Details</h2>
+        <p><strong>Unique ID:</strong> <span id="productID"></span></p>
+        <p><strong>Name:</strong> <span id="productName"></span></p>
+        <p><strong>Price:</strong> $<span id="productPrice"></span></p>
+        <p><strong>Stock:</strong> <span id="productStock"></span></p>
+        <input type="number" id="stockChange" placeholder="Add or Reduce Stock">
+        <button onclick="updateStock()">Update Stock</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
